@@ -16,7 +16,7 @@ namespace Punto_VentaTiendaComics
         public Form1()
         {
             InitializeComponent();
-
+           
 
         }
 
@@ -35,7 +35,7 @@ namespace Punto_VentaTiendaComics
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            tmrHora.Start();
         }
 
         #region Botones del menú lateral
@@ -77,5 +77,18 @@ namespace Punto_VentaTiendaComics
         }
 
         #endregion
+
+        private void tmrHora_Tick(object sender, EventArgs e)
+        {
+            lbFecha.Text = Convert.ToString(DateTime.Now.Date.ToShortDateString());
+            lbMin.Text = Convert.ToString( DateTime.Now.Minute);
+            lbHora.Text = Convert.ToString(DateTime.Now.Hour);
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
