@@ -1,0 +1,11 @@
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\bin\Debug\Punto_VentaTiendaComics.exe.config
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\bin\Debug\Punto_VentaTiendaComics.exe
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\bin\Debug\Punto_VentaTiendaComics.pdb
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Form1.resources
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Properties.Resources.resources
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.csproj.GenerateResource.Cache
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.exe
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.pdb
+c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Ventas.resources
+C:\Users\Elizabeth\Documents\Visual Studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.csprojResolveAssemblyReference.cache
+C:\Users\Elizabeth\Documents\Visual Studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.SplashScreen.resources
