@@ -12,23 +12,30 @@ using System.Diagnostics;
 namespace Punto_VentaTiendaComics
 {
     public partial class Form1 : Form
-    {
+    {   
         public Form1()
         {
             InitializeComponent();
-           
+            this.Height = Screen.PrimaryScreen.Bounds.Height - 40;
+            this.Width = Screen.PrimaryScreen.Bounds.Width;
+                
+
+
 
         }
 
         int indexC = 0;
         Ventas v = new Ventas();
-
+        AddUser user = new AddUser();
         //Método que remueve los controles dependiendo del control actual
         public void rControl(int index)
         {
             switch (index)
             {
                 case 1:  Controls.Remove(v); 
+                    break;
+
+                case 5: Controls.Remove(user);
                     break;
             }
         }
@@ -43,9 +50,19 @@ namespace Punto_VentaTiendaComics
 
         private void btnCalculadora_Click(object sender, EventArgs e)
         {
-            rControl(indexC);
+            if (indexC != 5)
+            {
+                rControl(indexC);
+                user.Location = new System.Drawing.Point(148, 93);
+                user.Name = "cUser";
+                user.Size = new System.Drawing.Size(742, 414);
+                user.BackColor = Color.Transparent;
+                indexC = 5;
+                Controls.Add(user);
+                user.BringToFront();
+              
 
-            
+            }
 
         }
 
@@ -53,9 +70,9 @@ namespace Punto_VentaTiendaComics
         {  if (indexC != 1)
             {
                 rControl(indexC);
-                v.Location = new System.Drawing.Point(148, 93);
+                v.Location = new System.Drawing.Point(522, 12);
                 v.Name = "cVenta";
-                v.Size = new System.Drawing.Size(742, 414);
+                v.Size = new System.Drawing.Size(828, 681);
                 v.BackColor = Color.Transparent;
                 indexC = 1;
                 Controls.Add(v);
@@ -72,7 +89,7 @@ namespace Punto_VentaTiendaComics
         private void button2_Click(object sender, EventArgs e)
         {
             rControl(indexC);
-            indexC = 2;
+           
 
         }
 
@@ -81,12 +98,27 @@ namespace Punto_VentaTiendaComics
         private void tmrHora_Tick(object sender, EventArgs e)
         {
             lbFecha.Text = Convert.ToString(DateTime.Now.Date.ToShortDateString());
-            lbMin.Text = Convert.ToString( DateTime.Now.Minute);
+            lbMin.Text =  Convert.ToString(DateTime.Now.Minute);
             lbHora.Text = Convert.ToString(DateTime.Now.Hour);
             
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }        
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gridBuscador_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

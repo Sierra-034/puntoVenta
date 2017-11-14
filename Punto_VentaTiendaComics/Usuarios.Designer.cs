@@ -284,6 +284,8 @@
             this.Controls.Add(this.lbNombre);
             this.Controls.Add(this.txtNombreU);
             this.Controls.Add(this.dataGridView1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DoubleBuffered = true;
             this.Name = "AddUser";
             this.Size = new System.Drawing.Size(742, 414);
             this.Load += new System.EventHandler(this.Usuarios_Load);

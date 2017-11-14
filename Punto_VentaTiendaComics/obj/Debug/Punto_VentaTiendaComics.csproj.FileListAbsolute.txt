@@ -9,3 +9,6 @@ c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics
 c:\users\elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Ventas.resources
 C:\Users\Elizabeth\Documents\Visual Studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.csprojResolveAssemblyReference.cache
 C:\Users\Elizabeth\Documents\Visual Studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.SplashScreen.resources
+C:\Users\Elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Apartado.resources
+C:\Users\Elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.Recordatorios.resources
+C:\Users\Elizabeth\documents\visual studio 2015\Projects\Punto_VentaTiendaComics\Punto_VentaTiendaComics\obj\Debug\Punto_VentaTiendaComics.AddUser.resources

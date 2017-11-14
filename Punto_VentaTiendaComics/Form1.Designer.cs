@@ -37,17 +37,25 @@
             this.btnRec = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbMin = new System.Windows.Forms.Label();
             this.lbHora = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbMin = new System.Windows.Forms.Label();
             this.tmrHora = new System.Windows.Forms.Timer(this.components);
+            this.gridDatos = new System.Windows.Forms.DataGridView();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.gridBuscador = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDatos)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBuscador)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -61,7 +69,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnUsuarios);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(-2, 59);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 448);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 634);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnVentas
@@ -182,16 +190,37 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(869, 94);
+            this.panel1.Size = new System.Drawing.Size(353, 94);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(273, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(12, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = ":";
+            // 
+            // lbMin
+            // 
+            this.lbMin.AutoSize = true;
+            this.lbMin.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMin.Location = new System.Drawing.Point(291, 60);
+            this.lbMin.Name = "lbMin";
+            this.lbMin.Size = new System.Drawing.Size(31, 26);
+            this.lbMin.TabIndex = 5;
+            this.lbMin.Text = "12";
             // 
             // lbHora
             // 
             this.lbHora.AutoSize = true;
-            this.lbHora.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHora.Location = new System.Drawing.Point(668, 46);
+            this.lbHora.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHora.Location = new System.Drawing.Point(244, 60);
             this.lbHora.Name = "lbHora";
-            this.lbHora.Size = new System.Drawing.Size(23, 20);
+            this.lbHora.Size = new System.Drawing.Size(31, 26);
             this.lbHora.TabIndex = 4;
             this.lbHora.Text = "12";
             // 
@@ -199,7 +228,7 @@
             // 
             this.lbFecha.AutoSize = true;
             this.lbFecha.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFecha.Location = new System.Drawing.Point(725, 46);
+            this.lbFecha.Location = new System.Drawing.Point(146, 39);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(47, 20);
             this.lbFecha.TabIndex = 3;
@@ -209,7 +238,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(662, 10);
+            this.label1.Location = new System.Drawing.Point(146, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 2;
@@ -236,29 +265,64 @@
             this.panel2.Size = new System.Drawing.Size(0, 0);
             this.panel2.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(685, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = ":";
-            // 
-            // lbMin
-            // 
-            this.lbMin.AutoSize = true;
-            this.lbMin.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMin.Location = new System.Drawing.Point(696, 46);
-            this.lbMin.Name = "lbMin";
-            this.lbMin.Size = new System.Drawing.Size(23, 20);
-            this.lbMin.TabIndex = 5;
-            this.lbMin.Text = "12";
-            // 
             // tmrHora
             // 
             this.tmrHora.Tick += new System.EventHandler(this.tmrHora_Tick);
+            // 
+            // gridDatos
+            // 
+            this.gridDatos.BackgroundColor = System.Drawing.Color.Gray;
+            this.gridDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDatos.Location = new System.Drawing.Point(3, 32);
+            this.gridDatos.Name = "gridDatos";
+            this.gridDatos.Size = new System.Drawing.Size(320, 96);
+            this.gridDatos.TabIndex = 3;
+            this.gridDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBuscador_CellContentClick);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBuscar.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(3, 3);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(179, 23);
+            this.txtBuscar.TabIndex = 4;
+            this.txtBuscar.Text = "Busque un producto";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.BackgroundImage = global::Punto_VentaTiendaComics.Properties.Resources.fondoB;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = global::Punto_VentaTiendaComics.Properties.Resources.buscar;
+            this.btnBuscar.Location = new System.Drawing.Point(188, 3);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(51, 23);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel2.Controls.Add(this.txtBuscar);
+            this.flowLayoutPanel2.Controls.Add(this.btnBuscar);
+            this.flowLayoutPanel2.Controls.Add(this.gridDatos);
+            this.flowLayoutPanel2.Controls.Add(this.gridBuscador);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(235, 109);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(323, 584);
+            this.flowLayoutPanel2.TabIndex = 6;
+            // 
+            // gridBuscador
+            // 
+            this.gridBuscador.BackgroundColor = System.Drawing.Color.Gray;
+            this.gridBuscador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBuscador.Location = new System.Drawing.Point(3, 134);
+            this.gridBuscador.Name = "gridBuscador";
+            this.gridBuscador.Size = new System.Drawing.Size(320, 308);
+            this.gridBuscador.TabIndex = 6;
             // 
             // Form1
             // 
@@ -267,7 +331,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BackgroundImage = global::Punto_VentaTiendaComics.Properties.Resources.x2;
-            this.ClientSize = new System.Drawing.Size(892, 505);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1362, 705);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -278,11 +344,16 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.TransparencyKey = System.Drawing.Color.DimGray;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDatos)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridBuscador)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +376,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbMin;
         private System.Windows.Forms.Timer tmrHora;
+        private System.Windows.Forms.DataGridView gridDatos;
+        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.DataGridView gridBuscador;
     }
 }
 
