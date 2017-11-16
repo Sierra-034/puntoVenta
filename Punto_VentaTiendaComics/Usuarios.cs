@@ -22,9 +22,5 @@ namespace Punto_VentaTiendaComics
 
         }
 
-        private void picCarga_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

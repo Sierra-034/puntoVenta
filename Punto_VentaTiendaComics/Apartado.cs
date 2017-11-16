@@ -16,5 +16,10 @@ namespace Punto_VentaTiendaComics
         {
             InitializeComponent();
         }
+
+        private void btnOk_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

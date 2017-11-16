@@ -25,41 +25,63 @@ namespace Punto_VentaTiendaComics
         }
 
         int indexC = 0;
-        Ventas v = new Ventas();
-        AddUser user = new AddUser();
-        //Método que remueve los controles dependiendo del control actual
-        public void rControl(int index)
-        {
-            switch (index)
-            {
-                case 1:  Controls.Remove(v); 
-                    break;
+        //instancias de los controles de Usuario para las opciones del menú
+        Ventas ventas = new Ventas();
+        AddUser usuarios = new AddUser();
+        Apartado apartado = new Apartado();
 
-                case 5: Controls.Remove(user);
-                    break;
-            }
-        }
+        //Método que remueve los controles dependiendo del control actual
+    
 
         private void Form1_Load(object sender, EventArgs e)
         {
             tmrHora.Start();
         }
 
+        private void tmrHora_Tick(object sender, EventArgs e)
+        {
+            lbFecha.Text = Convert.ToString(DateTime.Now.Date.ToShortDateString());
+            lbMin.Text =  Convert.ToString(DateTime.Now.Minute);
+            lbHora.Text = Convert.ToString(DateTime.Now.Hour);
+            if (panelMenu.Focused) { panelMenu.Width = 150; }
+            
+        }
+
         #region Botones del menú lateral
-        // Este segmento  crea un control de  usuario en el panel2 
+
+        public void rControl(int index)
+        {
+            switch (index)
+            {
+                case 1:
+                    eliminarLb();
+                     Controls.Remove(ventas); 
+                    break;
+
+                case 3:
+                    eliminarLb();
+                    Controls.Remove(apartado);
+                    break;
+
+                case 5:
+                    eliminarLb();
+                    Controls.Remove(usuarios);
+                    break;
+            }
+        }
 
         private void btnCalculadora_Click(object sender, EventArgs e)
         {
             if (indexC != 5)
             {
                 rControl(indexC);
-                user.Location = new System.Drawing.Point(148, 93);
-                user.Name = "cUser";
-                user.Size = new System.Drawing.Size(742, 414);
-                user.BackColor = Color.Transparent;
+                usuarios.Location = new System.Drawing.Point(580, 12);
+                usuarios.Name = "cUser";
+                usuarios.Size = new System.Drawing.Size(828, 681);
+                usuarios.BackColor = Color.Transparent;
                 indexC = 5;
-                Controls.Add(user);
-                user.BringToFront();
+                Controls.Add(usuarios);
+                usuarios.BringToFront();
               
 
             }
@@ -70,57 +92,119 @@ namespace Punto_VentaTiendaComics
         {  if (indexC != 1)
             {
                 rControl(indexC);
-                v.Location = new System.Drawing.Point(522, 12);
-                v.Name = "cVenta";
-                v.Size = new System.Drawing.Size(828, 681);
-                v.BackColor = Color.Transparent;
+                ventas.Location = new System.Drawing.Point(580, 12);
+                ventas.Name = "cVenta";
+                ventas.Size = new System.Drawing.Size(828, 681);
+                ventas.BackColor = Color.Transparent;
                 indexC = 1;
-                Controls.Add(v);
-                v.BringToFront();
+                Controls.Add(ventas);
+                ventas.BringToFront();
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            rControl(indexC);
+            if (indexC != 4)
+            {
+                rControl(indexC);
+                indexC = 4;
+            }
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            rControl(indexC);
-           
+            if (indexC != 2)
+            {
+                rControl(indexC);
+                indexC = 2;
+            }
+        }
 
+   private void button3_Click(object sender, EventArgs e)
+        {
+            if(indexC!=3)
+            {
+                rControl(indexC);
+                apartado.Location = new System.Drawing.Point(580, 12);
+                apartado.Name = "cApartado";
+                apartado.Size = new System.Drawing.Size(828, 681);
+                apartado.BackColor = Color.Transparent;
+                indexC = 3;
+                Controls.Add(apartado);
+                ventas.BringToFront();
+            }
         }
 
         #endregion
 
-        private void tmrHora_Tick(object sender, EventArgs e)
-        {
-            lbFecha.Text = Convert.ToString(DateTime.Now.Date.ToShortDateString());
-            lbMin.Text =  Convert.ToString(DateTime.Now.Minute);
-            lbHora.Text = Convert.ToString(DateTime.Now.Hour);
-            
-        }
 
-        private void label1_Click(object sender, EventArgs e)
+        #region Movimiento del menú
+
+        private void tmrMenu_Tick(object sender, EventArgs e)
         {
+
+           panelMenu.Width = 0;
+            panelScroll.Visible = true;
+            panelScrollUp.Visible = true;
+            panelScrollDown.Visible = true;
+            tmrMenu.Stop();
 
         }        
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void panelMenu_Leave(object sender, EventArgs e)
         {
-
+            tmrMenu.Start();
+          
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void panelScroll_MouseEnter(object sender, EventArgs e)
         {
-
+            mostrarMenu();
         }
 
-        private void gridBuscador_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void txtBuscar_Click(object sender, EventArgs e)
         {
-
+            tmrMenu.Start();
+            txtBuscar.Focus();
+            txtBuscar.Text = "";
         }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            tmrMenu.Start();
+            txtBuscar.Focus();
+        }
+
+        public void mostrarMenu() {
+
+            tmrMenu.Stop();
+            panelMenu.Width = 150;
+            panelScroll.Visible = false;
+            panelScrollUp.Visible = false;
+            panelScrollDown.Visible = false;
+            panelMenu.Focus();
+        }    
+
+        private void panelScrollDown_MouseEnter(object sender, EventArgs e)
+        {
+            mostrarMenu();
+        }
+
+        private void panelScrollUp_MouseEnter(object sender, EventArgs e)
+        {
+            mostrarMenu();
+        }
+
+        public void eliminarLb()
+        {
+            lbBien.Visible = false; lbUser.Visible = false;
+        }
+
+        #endregion
+
+
+  
+        
     }
 }

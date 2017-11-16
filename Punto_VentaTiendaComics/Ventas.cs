@@ -16,20 +16,5 @@ namespace Punto_VentaTiendaComics
         {
             InitializeComponent();
         }
-
-        private void Ventas_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

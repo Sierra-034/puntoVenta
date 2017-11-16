@@ -30,7 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.btnVentas = new System.Windows.Forms.Button();
             this.btnInv = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -50,7 +52,13 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.gridBuscador = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tmrMenu = new System.Windows.Forms.Timer(this.components);
+            this.panelScroll = new System.Windows.Forms.Panel();
+            this.panelScrollDown = new System.Windows.Forms.Panel();
+            this.panelScrollUp = new System.Windows.Forms.Panel();
+            this.lbBien = new System.Windows.Forms.Label();
+            this.lbUser = new System.Windows.Forms.Label();
+            this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDatos)).BeginInit();
@@ -58,19 +66,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridBuscador)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // panelMenu
             // 
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Controls.Add(this.btnVentas);
-            this.flowLayoutPanel1.Controls.Add(this.btnInv);
-            this.flowLayoutPanel1.Controls.Add(this.button3);
-            this.flowLayoutPanel1.Controls.Add(this.btnRec);
-            this.flowLayoutPanel1.Controls.Add(this.btnUsuarios);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(-2, 59);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 634);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.panelMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelMenu.BackColor = System.Drawing.Color.Transparent;
+            this.panelMenu.Controls.Add(this.btnVentas);
+            this.panelMenu.Controls.Add(this.btnInv);
+            this.panelMenu.Controls.Add(this.button3);
+            this.panelMenu.Controls.Add(this.btnRec);
+            this.panelMenu.Controls.Add(this.btnUsuarios);
+            this.panelMenu.Location = new System.Drawing.Point(1, 116);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(150, 314);
+            this.panelMenu.TabIndex = 0;
+            this.panelMenu.Leave += new System.EventHandler(this.panelMenu_Leave);
             // 
             // btnVentas
             // 
@@ -84,8 +93,8 @@
             this.btnVentas.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnVentas.Image = global::Punto_VentaTiendaComics.Properties.Resources.Selpng;
             this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVentas.Location = new System.Drawing.Point(3, 50);
-            this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 50, 3, 10);
+            this.btnVentas.Location = new System.Drawing.Point(3, 10);
+            this.btnVentas.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(145, 40);
             this.btnVentas.TabIndex = 1;
@@ -106,7 +115,7 @@
             this.btnInv.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnInv.Image = global::Punto_VentaTiendaComics.Properties.Resources.Selpng;
             this.btnInv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInv.Location = new System.Drawing.Point(3, 110);
+            this.btnInv.Location = new System.Drawing.Point(3, 70);
             this.btnInv.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.btnInv.Name = "btnInv";
             this.btnInv.Size = new System.Drawing.Size(145, 40);
@@ -128,13 +137,14 @@
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = global::Punto_VentaTiendaComics.Properties.Resources.Selpng;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 170);
+            this.button3.Location = new System.Drawing.Point(3, 130);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(145, 40);
             this.button3.TabIndex = 3;
             this.button3.Text = "Apartado";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnRec
             // 
@@ -148,7 +158,7 @@
             this.btnRec.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnRec.Image = global::Punto_VentaTiendaComics.Properties.Resources.Selpng;
             this.btnRec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRec.Location = new System.Drawing.Point(3, 230);
+            this.btnRec.Location = new System.Drawing.Point(3, 190);
             this.btnRec.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
             this.btnRec.Name = "btnRec";
             this.btnRec.Size = new System.Drawing.Size(145, 40);
@@ -168,7 +178,7 @@
             this.btnUsuarios.ForeColor = System.Drawing.Color.Black;
             this.btnUsuarios.Image = global::Punto_VentaTiendaComics.Properties.Resources.Selpng;
             this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(3, 290);
+            this.btnUsuarios.Location = new System.Drawing.Point(3, 250);
             this.btnUsuarios.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(141, 49);
@@ -192,7 +202,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 94);
             this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -243,7 +252,6 @@
             this.label1.Size = new System.Drawing.Size(204, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "SilverFang Cosamaloapan, Ver";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -271,13 +279,18 @@
             // 
             // gridDatos
             // 
-            this.gridDatos.BackgroundColor = System.Drawing.Color.Gray;
+            this.gridDatos.AllowUserToAddRows = false;
+            this.gridDatos.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.gridDatos.BackgroundColor = System.Drawing.Color.White;
+            this.gridDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gridDatos.Location = new System.Drawing.Point(3, 32);
             this.gridDatos.Name = "gridDatos";
             this.gridDatos.Size = new System.Drawing.Size(320, 96);
-            this.gridDatos.TabIndex = 3;
-            this.gridDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridBuscador_CellContentClick);
+            this.gridDatos.TabIndex = 2;
             // 
             // txtBuscar
             // 
@@ -286,8 +299,10 @@
             this.txtBuscar.Location = new System.Drawing.Point(3, 3);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(179, 23);
-            this.txtBuscar.TabIndex = 4;
+            this.txtBuscar.TabIndex = 1;
             this.txtBuscar.Text = "Busque un producto";
+            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // btnBuscar
             // 
@@ -310,19 +325,82 @@
             this.flowLayoutPanel2.Controls.Add(this.btnBuscar);
             this.flowLayoutPanel2.Controls.Add(this.gridDatos);
             this.flowLayoutPanel2.Controls.Add(this.gridBuscador);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(235, 109);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(225, 109);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(323, 584);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // gridBuscador
             // 
-            this.gridBuscador.BackgroundColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridBuscador.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.gridBuscador.BackgroundColor = System.Drawing.Color.White;
+            this.gridBuscador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridBuscador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridBuscador.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gridBuscador.Location = new System.Drawing.Point(3, 134);
             this.gridBuscador.Name = "gridBuscador";
             this.gridBuscador.Size = new System.Drawing.Size(320, 308);
-            this.gridBuscador.TabIndex = 6;
+            this.gridBuscador.TabIndex = 3;
+            // 
+            // tmrMenu
+            // 
+            this.tmrMenu.Interval = 300;
+            this.tmrMenu.Tick += new System.EventHandler(this.tmrMenu_Tick);
+            // 
+            // panelScroll
+            // 
+            this.panelScroll.BackColor = System.Drawing.Color.Transparent;
+            this.panelScroll.Location = new System.Drawing.Point(156, 116);
+            this.panelScroll.Name = "panelScroll";
+            this.panelScroll.Size = new System.Drawing.Size(10, 319);
+            this.panelScroll.TabIndex = 7;
+            this.panelScroll.Visible = false;
+            this.panelScroll.MouseEnter += new System.EventHandler(this.panelScroll_MouseEnter);
+            // 
+            // panelScrollDown
+            // 
+            this.panelScrollDown.BackColor = System.Drawing.Color.Transparent;
+            this.panelScrollDown.Location = new System.Drawing.Point(1, 438);
+            this.panelScrollDown.Name = "panelScrollDown";
+            this.panelScrollDown.Size = new System.Drawing.Size(164, 10);
+            this.panelScrollDown.TabIndex = 8;
+            this.panelScrollDown.Visible = false;
+            this.panelScrollDown.MouseEnter += new System.EventHandler(this.panelScrollDown_MouseEnter);
+            // 
+            // panelScrollUp
+            // 
+            this.panelScrollUp.BackColor = System.Drawing.Color.Transparent;
+            this.panelScrollUp.Location = new System.Drawing.Point(3, 103);
+            this.panelScrollUp.Name = "panelScrollUp";
+            this.panelScrollUp.Size = new System.Drawing.Size(162, 10);
+            this.panelScrollUp.TabIndex = 9;
+            this.panelScrollUp.Visible = false;
+            this.panelScrollUp.MouseEnter += new System.EventHandler(this.panelScrollUp_MouseEnter);
+            // 
+            // lbBien
+            // 
+            this.lbBien.AutoSize = true;
+            this.lbBien.BackColor = System.Drawing.Color.Transparent;
+            this.lbBien.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBien.ForeColor = System.Drawing.Color.White;
+            this.lbBien.Location = new System.Drawing.Point(685, 141);
+            this.lbBien.Name = "lbBien";
+            this.lbBien.Size = new System.Drawing.Size(520, 117);
+            this.lbBien.TabIndex = 10;
+            this.lbBien.Text = "¡Bienvenido";
+            // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.BackColor = System.Drawing.Color.Transparent;
+            this.lbUser.Font = new System.Drawing.Font("Impact", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUser.ForeColor = System.Drawing.Color.White;
+            this.lbUser.Location = new System.Drawing.Point(834, 269);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(478, 117);
+            this.lbUser.TabIndex = 11;
+            this.lbUser.Text = "Username!";
             // 
             // Form1
             // 
@@ -333,10 +411,15 @@
             this.BackgroundImage = global::Punto_VentaTiendaComics.Properties.Resources.x2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1362, 705);
+            this.Controls.Add(this.lbUser);
+            this.Controls.Add(this.lbBien);
+            this.Controls.Add(this.panelScrollUp);
+            this.Controls.Add(this.panelScrollDown);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelScroll);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -346,7 +429,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.DimGray;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -361,7 +444,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel panelMenu;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Button btnInv;
         private System.Windows.Forms.Button button3;
@@ -381,6 +464,12 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.DataGridView gridBuscador;
+        private System.Windows.Forms.Timer tmrMenu;
+        private System.Windows.Forms.Panel panelScroll;
+        private System.Windows.Forms.Panel panelScrollDown;
+        private System.Windows.Forms.Panel panelScrollUp;
+        private System.Windows.Forms.Label lbBien;
+        private System.Windows.Forms.Label lbUser;
     }
 }
 
